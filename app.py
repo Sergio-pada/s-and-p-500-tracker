@@ -10,6 +10,11 @@ st.title("S&P 500 Performance (Last 10 years)")
 sp500 = yf.Ticker("^GSPC")
 data = sp500.history(period="10y")  # Get the last 10 years of data
 
+# Display the date range
+start_date = data.index.min().date()
+end_date = data.index.max().date()
+st.write(f"Data from **{start_date}** to **{end_date}**")
+
 # Calculate daily returns
 data['Return'] = data['Close'].pct_change()
 
