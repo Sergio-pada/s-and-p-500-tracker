@@ -28,9 +28,7 @@ average_returns = data.groupby('Day of Week')['Return'].mean().reindex(['Monday'
 average_returns_df = average_returns.reset_index()
 
 # Set the 'Day of Week' as a categorical type with the desired order
-average_returns_df['Day of Week'] = pd.Categorical(average_returns_df['Day of Week'], 
-                                                    categories=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], 
-                                                    ordered=True)
+average_returns_df['Day of Week'] = pd.Categorical(average_returns_df['Day of Week'], categories=['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'], ordered=True)
 
 # Calculate average return by month
 data['Month'] = data.index.month_name()  # Extract month names
